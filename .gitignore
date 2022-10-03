@@ -91,3 +91,7 @@ dkms.conf
 !*.*
 
 !makefile
+
+**.dSYM/
+
+tasks.json
