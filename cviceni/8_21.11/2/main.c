@@ -141,7 +141,6 @@ int main()
     printf("Successully replaced all substrings!\n");
 
     // Allocate and initialize a new string.
-    free(str);
     str = (char *)malloc(strlen(str_init) + 1);
     if (str == NULL)
     {
@@ -150,13 +149,15 @@ int main()
     strcpy(str, str_init);
 
     // Try using replace with substring that is not in the string.
-    str = replace(str, "worlds", "World!");
-    if (str == NULL)
+    char *new_str = replace(str, "worlds", "World!");
+    if (new_str == NULL)
     {
-        free(str);
-        return 1;
+	free(str);
+	return 1;
     }
     printf("%s\n", str);
 
+
+    free(str);
     return 0;
 }
